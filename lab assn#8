@@ -1,0 +1,131 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPbvS0/z83MMNzR0foU1PhN",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/surajsolti/hwLabassignment/blob/main/lab%20assn%238\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "B9x7bk-UVOBC"
+      },
+      "outputs": [],
+      "source": [
+        "# Q1: Answer\n",
+        "import math\n",
+        "class Ball:\n",
+        "  def __init__(self, radius):\n",
+        "    self.radius = radius\n",
+        "  \n",
+        "  \n",
+        "  def surfaceArea(self):\n",
+        "    return 4 * math.pi*(self.radius**2)\n",
+        "  \n",
+        "  def volume(self):\n",
+        "    return (4/3) * math.pi * (self.radius**3)\n",
+        "\n",
+        "def main():\n",
+        "  rad = eval(input(\"Enter a radius: \"))\n",
+        "\n",
+        "  ball = Ball(rad)\n",
+        "  area = ball.surfaceArea()\n",
+        "  vol = ball.volume()\n",
+        "  print(f\"The volume of the sphere is: {ball.volume()}\")\n",
+        "  print(f\"The surface Area of the sphere is: {ball.surfaceArea()}\")\n",
+        " \n",
+        "\n",
+        "main()\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# Q2: Answer\n",
+        "class Card:\n",
+        "    \"A Card object is a numeric representation of a card.\"\n",
+        "\n",
+        "    def __init__(self, rank, suit):\n",
+        "        \"Indicates rank from 1-13, as well as the card's suit.\"\n",
+        "        self.rank = rank\n",
+        "        self.suit = suit\n",
+        "        self.ranks = [None, \"ace\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"jack\", \"queen\", \"king\"]\n",
+        "        self.suits = {\"s\": \"spades\",\n",
+        "                      \"d\": \"diamonds\",\n",
+        "                      \"c\": \"clubs\",\n",
+        "                      \"h\": \"hearts\"}\n",
+        "\n",
+        "    def getRank(self):\n",
+        "        \"Returns the rank of the card.\"\n",
+        "        return self.rank\n",
+        "\n",
+        "    def getSuit(self):\n",
+        "        return self.suits.get(self.suit)\n",
+        "\n",
+        "\n",
+        "    def BJValue(self):\n",
+        "        if self.rank > 1 or self.rank < 11:\n",
+        "            self.value = self.rank\n",
+        "\n",
+        "        elif self.rank == \"Ace\":\n",
+        "            self.value = 1\n",
+        "\n",
+        "        elif self.rank == \"Jack\" or self.ranks == \"Queen\" or self.ranks == \"King\":\n",
+        "            self.value = 10\n",
+        "\n",
+        "\n",
+        "        return self.value\n",
+        "\n",
+        "    def __str__(self):\n",
+        "\n",
+        "        return \"%s of %s\" % (self.ranks[self.rank], self.suits.get(self.suit))\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "c1 = Card(1, \"s\")\n",
+        "print(c1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DMMT_Ti4gIsV",
+        "outputId": "d25bc160-cf77-45da-c40e-d39e4385dae2"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ace of spades\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
